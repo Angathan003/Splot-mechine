@@ -51,8 +51,10 @@ def check_winnings(columns, lines, bet, values):
 
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = [symbol for symbol, count in symbols.items() for _ in range(count)]
-    return [random.sample(all_symbols, rows) for _ in range(cols)]
-
+    spin_result = []
+    for _ in range(cols):
+        spin_result.append(random.sample(all_symbols, rows))
+    return spin_result
 
 def print_slot_machine(columns):
     for row in zip(*columns):
